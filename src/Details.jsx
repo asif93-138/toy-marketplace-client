@@ -7,8 +7,8 @@ const Details = () => {
     return (
         
         <div>
-            Product details!
-            <p>{toy.name}</p><p>{toy.email}</p><p>{toy.toyName}</p><p>{toy.price}</p>
+            Product details!<br />
+            <img src={toy.photoURL} /><p>{toy.name}</p><p>{toy.email}</p><p>{toy.toyName}</p><p>{toy.cate}</p><p>{toy.cateS}</p><p>{toy.quantity}</p><p>{toy.price}</p>
         </div>
     );
 };

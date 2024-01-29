@@ -30,7 +30,7 @@ const MyToys = () => {
     return (
         <div>
             {toys.map(x => (<div key={x._id}>
-          <p>{x.name}</p><p>{x.email}</p><p>{x.toyName}</p><p>{x.price}</p><Link to={`/update/${x._id}`}><button type='button' className=''>Update</button></Link><button onClick={() => deleteToy(x._id)} type='button' className=''>Delete</button>
+              <img src={x.photoURL} /><p>{x.name}</p><p>{x.email}</p><p>{x.toyName}</p><p>{x.cate}</p><p>{x.cateS}</p><p>{x.quantity}</p><p>{x.price}</p><Link to={`/update/${x._id}`}><button type='button' className=''>Update</button></Link><button onClick={() => deleteToy(x._id)} type='button' className=''>Delete</button>
       </div>))}
         </div>
     );

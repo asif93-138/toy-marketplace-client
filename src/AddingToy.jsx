@@ -9,8 +9,12 @@ const AddingToy = () => {
         const name = form.name.value;
         const email = form.email.value;
         const toyName = form.toyName.value;
+        const photoURL = form.photoURL.value;
+        const cate = form.cate.value;
+        const cateS = form.cateS.value;
+        const quantity = form.quantity.value;
         const price = form.price.value;
-        const toy = {name, email, toyName, price};
+        const toy = {name, email, toyName, photoURL, cate, cateS, quantity, price};
         console.log(toy);
         fetch('http://localhost:3000/toys', {
           method: 'POST',
@@ -35,6 +39,10 @@ const AddingToy = () => {
         <input type='text' name='name' className='' defaultValue={user.displayName} readOnly />
         <input type='email' name='email' className='' defaultValue={user.email} readOnly />
         <input type='text' name='toyName' className='' placeholder='toy name' />
+        <input type='url' name='photoURL' className='' placeholder='photo url' />
+        <input type='text' name='cate' className='' placeholder='category' />
+        <input type='text' name='cateS' className='' placeholder='sub category' />
+        <input type='number' name='quantity' className='' placeholder='quantity' />
         <input type='number' name='price' className='' placeholder='price' />
         <button type='submit' className=''>Submit</button>
       </form>
