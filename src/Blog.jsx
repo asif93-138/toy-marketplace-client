@@ -12,12 +12,12 @@ const Blog = () => {
             <p>- Express.js, or simply Express, is a back end web application framework for building RESTful APIs with Node.js, released as free and open-source software under the MIT License. It is designed for building web applications and APIs. It has been called the de facto standard server framework for Node.js. <br />
             Nest.js is a progressive Node.js framework for building efficient, reliable and scalable server-side applications.</p>
             <p><b>What is MongoDB aggregate and how does it work?</b></p>
-            <p>Aggregation operations process multiple documents and return computed results. You can use aggregation operations to:
+            <div>Aggregation operations process multiple documents and return computed results. You can use aggregation operations to:
                 <ul>
                     <li>Group values from multiple documents together.</li>
                     <li>Perform operations on the grouped data to return a single result.</li>
                     <li>Analyze data changes over time.</li>
-                </ul></p>
+                </ul></div>
         </div>
     );
 };

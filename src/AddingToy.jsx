@@ -14,7 +14,9 @@ const AddingToy = () => {
         const cateS = form.cateS.value;
         const quantity = form.quantity.value;
         const price = form.price.value;
-        const toy = {name, email, toyName, photoURL, cate, cateS, quantity, price};
+        const ratings = form.ratings.value;
+        const details = form.details.value;
+        const toy = {name, email, toyName, photoURL, cate, cateS, quantity, price, ratings, details};
         console.log(toy);
         fetch('http://localhost:3000/toys', {
           method: 'POST',
@@ -44,6 +46,8 @@ const AddingToy = () => {
         <input type='text' name='cateS' className='' placeholder='sub category' />
         <input type='number' name='quantity' className='' placeholder='quantity' />
         <input type='number' name='price' className='' placeholder='price' />
+        <input type='number' name='ratings' className='' placeholder='ratings' step="0.5" />
+        <textarea className="form-control" rows="5" name="details" placeholder='details description'></textarea>
         <button type='submit' className=''>Submit</button>
       </form>
         </div>

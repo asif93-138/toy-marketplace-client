@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from './AuthProvider';
 import auth from '../firebase.config';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
     const { user } = useContext(AuthContext);
@@ -49,6 +50,7 @@ const Register = () => {
                         <input type='url' className='' name='photoURL' />
                         <button type='submit' className=''>Submit</button>
                         <p>{error}</p>
+                        <p><b>Already have an account?<Link to='/login'>Log in!</Link></b></p>
                     </form>
             }
 

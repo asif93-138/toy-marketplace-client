@@ -13,7 +13,9 @@ const Update = () => {
         const cateS = form.cateS.value;
         const quantity = form.quantity.value;
         const price = form.price.value;
-        const updatedToy = {toyName, photoURL, cate, cateS, quantity, price};
+        const ratings = form.ratings.value;
+        const details = form.details.value;
+        const updatedToy = {toyName, photoURL, cate, cateS, quantity, price, ratings, details};
         console.log(updatedToy);
         fetch(`http://localhost:3000/toys/${toy._id}`, {
             method: 'PUT',
@@ -40,7 +42,9 @@ const Update = () => {
         <input type='text' name='cate' className='' placeholder={toy.cate} />
         <input type='text' name='cateS' className='' placeholder={toy.cateS} />
         <input type='number' name='quantity' className='' placeholder={toy.quantity} />
-        <input type='number' name='price' className=''  defaultValue={toy.price}/>
+        <input type='number' name='price' className='' defaultValue={toy.price} />
+        <input type='number' name='ratings' className='' placeholder='ratings' step="0.5" defaultValue={toy.ratings} />
+        <textarea className="form-control" rows="5" name="details" placeholder='details description' defaultValue={toy.details}></textarea>
         <button type='submit' className=''>Update</button>
       </form>
         </div>
