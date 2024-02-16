@@ -1,13 +1,14 @@
 import React, { createContext, useEffect, useState } from 'react';
 import auth from '../firebase.config';
 import { onAuthStateChanged } from 'firebase/auth';
-import { useResolvedPath } from 'react-router-dom';
 
 export const AuthContext = createContext(null); 
 
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [count, setCount] = useState([]);
+    const [delLog, setDelLog] = useState(true);
     useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, currentUser => {
 			setUser(currentUser); setLoading(false);
@@ -16,8 +17,12 @@ const AuthProvider = ({children}) => {
 			unsubscribe();
 		}
 	}, [])
-    console.log(user);
-    const authInfo = { user, setUser, loading }
+    useEffect(() => {
+        fetch('http://localhost:3000/toys')
+        .then(res => res.json())
+        .then(data => setCount(data))
+	}, [delLog])
+    const authInfo = { user, setUser, loading, count, delLog, setDelLog }
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

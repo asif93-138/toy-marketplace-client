@@ -1,9 +1,9 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const Details = () => {
-    const toy = useLoaderData();
-    console.log(toy);
+    const location = useLocation();
+    const toy = location.state.dataObj
     return (
         
         <div>

@@ -36,7 +36,7 @@ const Header = () => {
                 {(!loading) && <>
                     {user && <>
                     <li className="nav-item">
-                <Link className="nav-link" to={`/mytoys/${user.displayName}`}>My toys</Link>
+                <Link className="nav-link" to={'/mytoys'}>My toys</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/addtoy">Add a Toy</Link>

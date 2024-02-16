@@ -7,3 +7,11 @@
 .fl-sp {
     margin-left: 20%;
 }
+.img-slider {
+    width: 100%;
+    height: 550px;
+}
+.img-cat {
+    width: 25%;
+    margin: 30px;
+}

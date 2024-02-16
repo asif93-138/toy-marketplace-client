@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from './AuthProvider';
 
 const AddingToy = () => {
-    const { user } = useContext(AuthContext);
+    const { user, delLog, setDelLog } = useContext(AuthContext);
     function dbInput(event) {
         event.preventDefault();
         const form = event.target;
@@ -11,12 +11,12 @@ const AddingToy = () => {
         const toyName = form.toyName.value;
         const photoURL = form.photoURL.value;
         const cate = form.cate.value;
-        const cateS = form.cateS.value;
+        
         const quantity = form.quantity.value;
         const price = form.price.value;
         const ratings = form.ratings.value;
         const details = form.details.value;
-        const toy = {name, email, toyName, photoURL, cate, cateS, quantity, price, ratings, details};
+        const toy = {name, email, toyName, photoURL, cate, quantity, price, ratings, details};
         console.log(toy);
         fetch('http://localhost:3000/toys', {
           method: 'POST',
@@ -30,7 +30,8 @@ const AddingToy = () => {
           console.log(res);
           if (res.acknowledged) {
             alert('Data added successfully!');    
-            form.reset();   
+            form.reset(); 
+            setDelLog(!delLog);
           }
         })
         
@@ -42,12 +43,15 @@ const AddingToy = () => {
         <input type='email' name='email' className='' defaultValue={user.email} readOnly />
         <input type='text' name='toyName' className='' placeholder='toy name' />
         <input type='url' name='photoURL' className='' placeholder='photo url' />
-        <input type='text' name='cate' className='' placeholder='category' />
-        <input type='text' name='cateS' className='' placeholder='sub category' />
+        <select className="" name="cate">
+          <option>Science Kits</option>
+          <option>Math Learning Toys</option>
+          <option>Engineering Kits</option>
+        </select>
         <input type='number' name='quantity' className='' placeholder='quantity' />
         <input type='number' name='price' className='' placeholder='price' />
         <input type='number' name='ratings' className='' placeholder='ratings' step="0.5" />
-        <textarea className="form-control" rows="5" name="details" placeholder='details description'></textarea>
+        <textarea className="" rows="5" name="details" placeholder='details description'></textarea>
         <button type='submit' className=''>Submit</button>
       </form>
         </div>
