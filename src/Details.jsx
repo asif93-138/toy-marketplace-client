@@ -6,9 +6,19 @@ const Details = () => {
     const toy = location.state.dataObj
     return (
         
-        <div>
-            Product details!<br />
-            <img src={toy.photoURL} /><p>{toy.name}</p><p>{toy.email}</p><p>{toy.toyName}</p><p>{toy.cate}</p><p>{toy.cateS}</p><p>{toy.quantity}</p><p>{toy.price}</p><p>{toy?.ratings}</p><p>{toy?.details}</p>
+        <div className='container mt-4'>
+            <h2 className='text-center'>Toy Details</h2>
+            <article>
+            <img src={toy.photoURL} className='img-fluid my-4' />
+            <p><b>Toy Name : </b>{toy.toyName}</p>
+            <p><b>Seller : </b>{toy.name}</p>
+            <p><b>Seller Email : </b>{toy.email}</p>
+            <p><b>Sub-Category : </b>{toy.cate}</p>
+            <p><b>Price : </b>{toy.price}</p>
+            <p><b>Rating : </b>{toy?.ratings}</p>
+            <p><b>Available quantity : </b>{toy.quantity}</p>
+            <p><b>Description : </b>{toy.details}</p>
+            </article>
         </div>
     );
 };

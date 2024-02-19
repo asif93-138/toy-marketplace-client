@@ -5,7 +5,7 @@ import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOu
 import auth from '../firebase.config';
 
 const Login = () => {
-    const { user, setUser } = useContext(AuthContext);
+    const { user, setUser } = useContext(AuthContext); 
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const from = useLocation().state?.from.pathname || '/';
@@ -65,20 +65,25 @@ const Login = () => {
         });
     }
     return (
-        <div>
+        <div className='container my-5 text-center'>
             <h2>Login</h2>
             {user ?
-                <button onClick={so} type='button' className=''>Logout</button>
+                <>
+                    <p className='my-4'>Please logout first!</p><button onClick={so} type='button' className='btn btn-primary'>Logout</button>
+                </>
                 :
                 <>
-                    <form onSubmit={siwE}>
-                        <input type='email' className='' name='email' required />
-                        <input type='password' className='' name='password' required />
-                        <button type='submit' className=''>Submit</button>
+                    <form onSubmit={siwE} className='w-50 text-start mx-auto'>
+                        <label htmlFor="email">Email:</label>
+                        <input type='email' className='form-control mb-3 border-primary' name='email' required />
+                        <label htmlFor="password">Password:</label>
+                        <input type='password' className='form-control mb-3 border-primary' name='password' required />
+                        <button type='submit' className='btn btn-primary'>Submit</button>
+                        <p>{error}</p>
                     </form>
-                    <p>{error}</p>
-                    <button onClick={siwG} type='button' className=''>Sign in with Google</button>
-                    <p><b>New to this site? Please, <Link to='/signup'>Sign up</Link></b></p>
+                    <h3>Or</h3>
+                    <button onClick={siwG} type='button' className='btn btn-primary mt-4'><i className="bi bi-google me-2"></i> Log in with Google</button>
+                    <p className='mt-4'><b>New to this site? Please, <Link to='/signup'>Sign up</Link></b></p>
                 </>
             }
 

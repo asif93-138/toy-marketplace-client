@@ -2,7 +2,7 @@ import React from 'react';
 
 const Blog = () => {
     return (
-        <div>
+        <div className='container my-5'>
             <h2>Blog!</h2>
             <p><b>What is an access token and refresh token? How do they work and where should we store them on the client-side?</b></p>
             <p>- Access Tokens are used to access protected resources (like APIs), and Refresh Tokens are used to request new Access Tokens without requiring the user to log in again. And these should be stored in httpOnly cookie.</p>

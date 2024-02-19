@@ -17,7 +17,7 @@ const AddingToy = () => {
         const ratings = form.ratings.value;
         const details = form.details.value;
         const toy = {name, email, toyName, photoURL, cate, quantity, price, ratings, details};
-        console.log(toy);
+        
         fetch('http://localhost:3000/toys', {
           method: 'POST',
           headers: {
@@ -37,22 +37,32 @@ const AddingToy = () => {
         
       }
     return (
-        <div>
-                  <form onSubmit={dbInput}>
-        <input type='text' name='name' className='' defaultValue={user.displayName} readOnly />
-        <input type='email' name='email' className='' defaultValue={user.email} readOnly />
-        <input type='text' name='toyName' className='' placeholder='toy name' />
-        <input type='url' name='photoURL' className='' placeholder='photo url' />
-        <select className="" name="cate">
+        <div className='container my-5'>
+          <h2 className='text-center mb-5'>Enter your toy details below</h2>
+        <form onSubmit={dbInput} className='w-50 mx-auto'>
+        <label htmlFor="name" className=''><b>Seller Name (Default) :</b></label>
+        <input type='text' name='name' className='form-control mb-3 border-primary' defaultValue={user.displayName} readOnly />
+        <label htmlFor="email" className=''><b>Seller Email (Default) :</b></label>
+        <input type='email' name='email' className='form-control mb-3 border-primary' defaultValue={user.email} readOnly />
+        <label htmlFor="toyName" className=''><b>Name of your Toy :</b></label>
+        <input type='text' name='toyName' className='form-control mb-3 border-primary' placeholder='toy name' />
+        <label htmlFor="photoURL" className=''><b>Photo URL of your Toy :</b></label>
+        <input type='url' name='photoURL' className='form-control mb-3 border-primary' placeholder='photo url' />
+        <label htmlFor="cate" className=''><b>Select your Toy Sub-Category:</b></label>
+        <select className="form-control mb-3 border-primary" name="cate">
           <option>Science Kits</option>
           <option>Math Learning Toys</option>
           <option>Engineering Kits</option>
         </select>
-        <input type='number' name='quantity' className='' placeholder='quantity' />
-        <input type='number' name='price' className='' placeholder='price' />
-        <input type='number' name='ratings' className='' placeholder='ratings' step="0.5" />
-        <textarea className="" rows="5" name="details" placeholder='details description'></textarea>
-        <button type='submit' className=''>Submit</button>
+        <label htmlFor="quantity" className=''><b>Quantity of your Toy :</b></label>
+        <input type='number' name='quantity' className='form-control mb-3 border-primary' placeholder='available quantity' />
+        <label htmlFor="price" className=''><b>Price of your Toy :</b></label>
+        <input type='number' name='price' className='form-control mb-3 border-primary' placeholder='price' />
+        <label htmlFor="ratings" className=''><b>Ratings of your Toy :</b></label>
+        <input type='number' name='ratings' className='form-control mb-3 border-primary' placeholder='ratings' step="0.5" />
+        <label htmlFor="details" className=''><b>Description of your Toy :</b></label>
+        <textarea className="form-control mb-3 border-primary" rows="5" name="details" placeholder='details description'></textarea>
+        <button type='submit' className='btn btn-primary w-100'>Submit</button>
       </form>
         </div>
     );

@@ -38,19 +38,24 @@ const Register = () => {
         
     }
     return (
-        <div>
+        <div className='container my-5 text-center'>
             <h2>Sign Up!</h2>
             {
-                user ? <p>Please, logout first!</p>
+                user ? <p className='mt-5'>Please, logout first!</p>
                     :
-                    <form onSubmit={suwE}>
-                        <input type='text' className='' name='name' required />
-                        <input type='email' className='' name='email' required />
-                        <input type='password' className='' name='password' required />
-                        <input type='url' className='' name='photoURL' />
-                        <button type='submit' className=''>Submit</button>
+                    <form onSubmit={suwE} className='w-50 text-start mx-auto'>
+                        <label htmlFor="name">Name:</label>
+                        <input type='text' className='form-control mb-3 border-primary' name='name' required />
+                        <label htmlFor="email">Email:</label>
+                        <input type='email' className='form-control mb-3 border-primary' name='email' required />
+                        <label htmlFor="password">Password:</label>
+                        <input type='password' className='form-control mb-3 border-primary' name='password' required />
+                        <label htmlFor="photoURL">Photo URL:</label>
+                        <input type='url' className='form-control mb-3 border-primary' name='photoURL' />
                         <p>{error}</p>
-                        <p><b>Already have an account?<Link to='/login'>Log in!</Link></b></p>
+                        <button type='submit' className='btn btn-primary'>Submit</button>
+                        
+                        <p className='mt-4 text-center'><b>Already have an account? &nbsp;<Link to='/login'>Log in!</Link></b></p>
                     </form>
             }
 

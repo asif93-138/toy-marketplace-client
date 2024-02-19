@@ -1,20 +1,21 @@
 import React, { useContext } from 'react';
-import { useLoaderData, useLocation } from 'react-router-dom';
+import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from './AuthProvider';
 
 const Update = () => {
   const {delLog, setDelLog} = useContext(AuthContext);
     const location = useLocation();
+    const navigate = useNavigate();
     const toy = location.state.formData;
     function updateToy(event) {
         event.preventDefault();
         const form = event.target;
-        const photoURL = form.photoURL.value;
+       
         const quantity = form.quantity.value;
         const price = form.price.value;
-        const ratings = form.ratings.value;
+       
         const details = form.details.value;
-        const updatedToy = { photoURL, quantity, price, ratings, details};
+        const updatedToy = { quantity, price, details };
         fetch(`http://localhost:3000/toys/${toy._id}`, {
             method: 'PUT',
             headers: {
@@ -30,20 +31,22 @@ const Update = () => {
               form.reset();
               setDelLog(!delLog);
               document.getElementsByTagName('form')[0].style.display = 'none';
+              navigate('/mytoys');
             }
           })
       }
     return (
-        <div>
-      <form onSubmit={updateToy}>
-        <input type='text' name='toyName' className='' defaultValue={toy.toyName} />
-        <input type='url' name='photoURL' className='' placeholder={toy.photoURL} />
-        <input type='text' name='cate' className='' defaultValue={toy.cate} />
-        <input type='number' name='quantity' className='' placeholder={toy.quantity} />
-        <input type='number' name='price' className='' placeholder={toy.price} />
-        <input type='number' name='ratings' className='' step="0.5" placeholder={toy.ratings} />
-        <textarea className="form-control" rows="5" name="details" placeholder={toy.details}></textarea>
-        <button type='submit' className=''>Update</button>
+        <div className='container my-5'>
+          <h2 className='text-center mb-3'>Update your toy</h2>
+          <h5 className='text-center mb-3'>Name : {toy.toyName}</h5><h5 className='text-center mb-5'>Sub Category : {toy.cate}</h5>
+      <form onSubmit={updateToy} className='w-50 mx-auto'>
+        <label htmlFor="quantity" className=''><b>Quantity of your Toy :</b></label>
+        <input type='number' name='quantity' className='form-control mb-3 border-primary' placeholder={toy.quantity} />
+        <label htmlFor="price" className=''><b>Price of your Toy :</b></label>
+        <input type='number' name='price' className='form-control mb-3 border-primary' placeholder={toy.price} />
+        <label htmlFor="details" className=''><b>Description of your Toy :</b></label>
+        <textarea className="form-control mb-3 border-primary" rows="5" name="details" placeholder={toy.details}></textarea>
+        <button type='submit' className='btn btn-primary'>Update</button>
       </form>
         </div>
     );

@@ -15,3 +15,25 @@
     width: 25%;
     margin: 30px;
 }
+.nav-a-cstm:hover {
+    color: black !important;
+}
+.active-link-c {
+    font-weight: bold;
+}
+.active-link-c button {
+    font-weight: bold;
+}
+footer {
+    background-color: #4e94fd;
+    color: white;
+}
+.ot-sec {
+    background-color: #cde1fe;
+    width: 30%;
+}
+.cate-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 3vw;
+}

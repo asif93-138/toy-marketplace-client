@@ -11,7 +11,7 @@ function App() {
     if (!user) {
       alert('Please, login first!');
     }
-    navigate(`/details/${id}`, {state: { dataObj: data }});
+    navigate('/details', {state: { dataObj: data }});
   }
 
 
@@ -22,7 +22,7 @@ function App() {
   })
   // console.log(sArr, mArr, eArr);
   return (
-    <div className='container text-center'>
+    <div className='container mt-4 text-center'>
 <div id="demo" className="carousel slide container" data-bs-ride="carousel">
 
   
@@ -53,18 +53,30 @@ function App() {
     <span className="carousel-control-next-icon"></span>
   </button>
 </div>
-<section className='text-center container'>
+<section className='text-center my-5 container'>
   <h3>Our Toys</h3>
-  <div>
-    <img src='https://specials-images.forbesimg.com/imageserve/64c727e53e9ca5472f03e864/Japace-100--Experiments-Science-Kit-for-Kids-Age-4-12-Year-Old/960x0.jpg?cropX1=0&cropX2=500&cropY1=0&cropY2=500' className='img-cat' />
-    <img src='https://storage.googleapis.com/ibw-blog/media/29/eb74edb10a6165f83d0303dfe8d8f5.jpeg' className='img-cat' />
-    <img src='https://m.media-amazon.com/images/I/911Px-FCMeL._AC_SL1500_.jpg' className='img-cat' />
-
+  <div className='d-flex justify-content-between my-5'>
+   <article className='ot-sec border border border-primary rounded-3 py-4'>
+      <i className="fs-3 fa-solid fa-microscope"></i>
+      <h4 className='my-3'>Science Kits</h4>
+      <h3>{sArr.length}</h3>
+   </article>
+   <article className='ot-sec border border border-primary rounded-3 py-4'>
+      <i className="fs-3 fa-solid fa-calculator"></i>
+      <h4 className='my-3'>Math Toys</h4>
+      <h3>{mArr.length}</h3>
+   </article>
+  <article className='ot-sec border border border-primary rounded-3 py-4'>
+    <i className="fs-3 fa-brands fa-galactic-republic"></i>
+    <h4 className='my-3'>Engineering Kits</h4>
+    <h3>{eArr.length}</h3>
+  </article>
   </div>
 </section>
       
-
-      <ul className="nav nav-pills" role="tablist">
+      <section className='my-5'>
+      <h3>Categories</h3>
+      <ul className="nav nav-pills justify-content-center my-4" role="tablist">
     <li className="nav-item">
       <a className="nav-link active" data-bs-toggle="pill" href="#home">Science Kits</a>
     </li>
@@ -75,45 +87,51 @@ function App() {
       <a className="nav-link" data-bs-toggle="pill" href="#menu2">Engineering Kit</a>
     </li>
   </ul>
-
   <div className="tab-content">
     <div id="home" className="container tab-pane active">
-      <h4>Science</h4>
-      <div className=''>
-      {sArr.map(x => <div key={x._id}>
-        <img src={x.photoURL} className='img-fluid' />
-        <p>Name : {x.toyName}</p>
-        <p>Price : {x.price}</p>
-        <p>Rating : {x.ratings}</p>
-        <button onClick={() => viewingDetail(x._id, x)} type='button' className=''>View Details</button>
+      
+      <div className='cate-grid'>
+      {sArr.map(x => <div key={x._id} className='card border-primary'>
+        <img src={x.photoURL} className='card-img-top w-100' />
+        <div className='card-body'>
+        <h4 className='card-title mb-3'>Name : {x.toyName}</h4>
+        <p className='card-text'>Price : {x.price}</p>
+        <p className='card-text'>Rating : {x.ratings}</p>
+        <button onClick={() => viewingDetail(x._id, x)} type='button' className='btn btn-primary'>View Details</button>
+        </div>
       </div>)}
       </div>
     </div>
     <div id="menu1" className="container tab-pane fade">
-    <h4>Math</h4>
-    <div className=''>
-    {mArr.map(x => <div key={x._id}>
-        <img src={x.photoURL} className='img-fluid' />
-        <p>Name : {x.toyName}</p>
-        <p>Price : {x.price}</p>
-        <p>Rating : {x.ratings}</p>
-        <button onClick={() => viewingDetail(x._id, x)} type='button' className=''>View Details</button>
+    
+    <div className='cate-grid'>
+    {mArr.map(x => <div key={x._id} className='card border-primary'>
+        <img src={x.photoURL} className='card-img-top w-100' />
+        <div className='card-body'>
+        <h4 className='card-title mb-3'>Name : {x.toyName}</h4>
+        <p className='card-text'>Price : {x.price}</p>
+        <p className='card-text'>Rating : {x.ratings}</p>
+        <button onClick={() => viewingDetail(x._id, x)} type='button' className='btn btn-primary'>View Details</button>
+        </div>
     </div>)}
     </div>
     </div>
     <div id="menu2" className="container tab-pane fade">
-    <h4>Engineering</h4>
-    <div className=''>
-    {eArr.map(x => <div key={x._id}>
-        <img src={x.photoURL} className='img-fluid' />
-        <p>Name : {x.toyName}</p>
-        <p>Price : {x.price}</p>
-        <p>Rating : {x.ratings}</p>
-        <button onClick={() => viewingDetail(x._id, x)} type='button' className=''>View Details</button>
+    
+    <div className='cate-grid'>
+    {eArr.map(x => <div key={x._id} className='card border-primary'>
+        <img src={x.photoURL} className='card-img-top w-100' />
+        <div className='card-body'>
+        <h4 className='card-title mb-3'>Name : {x.toyName}</h4>
+        <p className='card-text'>Price : {x.price}</p>
+        <p className='card-text'>Rating : {x.ratings}</p>
+        <button onClick={() => viewingDetail(x._id, x)} type='button' className='btn btn-primary'>View Details</button>
+        </div>
     </div>)}
     </div>
     </div>
   </div>
+      </section>
     </div>
   )
 }
