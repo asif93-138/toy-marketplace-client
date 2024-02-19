@@ -37,3 +37,24 @@ footer {
     grid-template-columns: auto auto auto;
     gap: 3vw;
 }
+
+@media (max-width: 767px) {
+    .fl-sp {
+        margin-left: initial;
+        text-align: center;
+    }
+    .img-slider {
+        width: 100%;
+        height: auto;
+    }
+    .ot-sec {
+        width: auto;
+        margin: 15px auto;
+    }
+    .cate-grid {
+        display: block;
+    }
+    .cate-grid > div {
+        margin: 15px 10px;
+    }
+}

@@ -23,7 +23,7 @@ function App() {
   // console.log(sArr, mArr, eArr);
   return (
     <div className='container mt-4 text-center'>
-<div id="demo" className="carousel slide container" data-bs-ride="carousel">
+<div id="demo" className="carousel slide" data-bs-ride="carousel">
 
   
   <div className="carousel-indicators">
@@ -53,9 +53,9 @@ function App() {
     <span className="carousel-control-next-icon"></span>
   </button>
 </div>
-<section className='text-center my-5 container'>
+<section className='text-center my-5'>
   <h3>Our Toys</h3>
-  <div className='d-flex justify-content-between my-5'>
+  <div className='d-md-flex justify-content-between my-5'>
    <article className='ot-sec border border border-primary rounded-3 py-4'>
       <i className="fs-3 fa-solid fa-microscope"></i>
       <h4 className='my-3'>Science Kits</h4>
@@ -88,7 +88,7 @@ function App() {
     </li>
   </ul>
   <div className="tab-content">
-    <div id="home" className="container tab-pane active">
+    <div id="home" className="tab-pane active">
       
       <div className='cate-grid'>
       {sArr.map(x => <div key={x._id} className='card border-primary'>
@@ -102,7 +102,7 @@ function App() {
       </div>)}
       </div>
     </div>
-    <div id="menu1" className="container tab-pane fade">
+    <div id="menu1" className="tab-pane fade">
     
     <div className='cate-grid'>
     {mArr.map(x => <div key={x._id} className='card border-primary'>
@@ -116,7 +116,7 @@ function App() {
     </div>)}
     </div>
     </div>
-    <div id="menu2" className="container tab-pane fade">
+    <div id="menu2" className="tab-pane fade">
     
     <div className='cate-grid'>
     {eArr.map(x => <div key={x._id} className='card border-primary'>
