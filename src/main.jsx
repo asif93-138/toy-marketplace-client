@@ -18,6 +18,7 @@ import AddingToy from './AddingToy.jsx';
 import MyToys from './MyToys.jsx';
 import Blog from './Blog.jsx';
 import AllToys from './AllToys.jsx';
+import { HelmetProvider } from 'react-helmet-async';
 
 const router = createBrowserRouter([
   {
@@ -71,7 +72,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <HelmetProvider>
+        <RouterProvider router={router} />
+      </HelmetProvider>
     </AuthProvider>
   </React.StrictMode>,
 )

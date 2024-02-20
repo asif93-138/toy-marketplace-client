@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from './AuthProvider';
+import { Helmet } from 'react-helmet-async';
 
 const AddingToy = () => {
     const { user, delLog, setDelLog } = useContext(AuthContext);
@@ -38,6 +39,9 @@ const AddingToy = () => {
       }
     return (
         <div className='container my-5'>
+                <Helmet>
+        <title>LT World | Toy Adding</title>
+      </Helmet>
           <h2 className='text-center mb-5'>Enter your toy details below</h2>
         <form onSubmit={dbInput} className='w-50 mx-auto'>
         <label htmlFor="name" className=''><b>Seller Name (Default) :</b></label>

@@ -3,6 +3,7 @@ import { AuthContext } from './AuthProvider';
 import auth from '../firebase.config';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const Register = () => {
     const { user } = useContext(AuthContext);
@@ -39,6 +40,9 @@ const Register = () => {
     }
     return (
         <div className='container my-5 text-center'>
+                <Helmet>
+        <title>LT World | Register</title>
+      </Helmet>
             <h2>Sign Up!</h2>
             {
                 user ? <p className='mt-5'>Please, logout first!</p>

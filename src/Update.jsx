@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from './AuthProvider';
+import { Helmet } from 'react-helmet-async';
 
 const Update = () => {
   const {delLog, setDelLog} = useContext(AuthContext);
@@ -37,6 +38,9 @@ const Update = () => {
       }
     return (
         <div className='container my-5'>
+                <Helmet>
+        <title>LT World | Update</title>
+      </Helmet>
           <h2 className='text-center mb-3'>Update your toy</h2>
           <h5 className='text-center mb-3'>Name : {toy.toyName}</h5><h5 className='text-center mb-5'>Sub Category : {toy.cate}</h5>
       <form onSubmit={updateToy} className='w-50 mx-auto'>

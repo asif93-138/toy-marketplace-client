@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from './AuthProvider';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const AllToys = () => {
     const navigate = useNavigate();
@@ -37,6 +38,9 @@ const AllToys = () => {
       }
     return (
         <div className='container my-5'>
+                <Helmet>
+        <title>LT World | All Toys</title>
+      </Helmet>
           <h2 className='text-center mb-5'>All Toys</h2>
             <div className='d-flex mx-auto my-3 w-75'><input id='search' type='text' className='form-control border-primary rounded' placeholder='search by toy name' /><button onClick={toySearch} type='button' className='btn btn-primary ms-3'>Search</button></div>
             {searched[0] == 'initial' ? <></> : <>

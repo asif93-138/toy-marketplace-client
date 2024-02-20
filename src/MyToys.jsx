@@ -1,14 +1,21 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData, useLocation } from 'react-router-dom';
 import { AuthContext } from './AuthProvider';
+import { Helmet } from 'react-helmet-async';
 
 const MyToys = () => {
-    const toys = [];
+    const [toys, setToys] = useState([]);
     const { user, count, delLog, setDelLog } = useContext(AuthContext);
-    count.forEach(element => {
-      if (element.email == user.email) {toys.push(element)}
-    });
-   
+    
+    useEffect(() => {
+      const toy = [];
+      count.forEach(element => {
+        if (element.email == user.email) {toy.push(element)}
+      });
+      setToys(toy);
+      
+    }, [count])
+    
     function deleteToy(id) {
       if (confirm('Delete this toy?')) {
         
@@ -25,9 +32,25 @@ const MyToys = () => {
         })
       }
       }
+      function lowToHigh() {
+        const toy = [];
+        toys.forEach(x => toy.push(x))
+        toy.sort(function(a, b){return Number(a.price) - Number(b.price)});
+        setToys(toy);
+      }
+      function highToLow() {
+        const toy = [];
+        toys.forEach(x => toy.push(x));
+        toy.sort(function(a, b){return Number(b.price) - Number(a.price)});
+        setToys(toy);
+      }
     return (
         <div className='container my-5'>
+                <Helmet>
+        <title>LT World | My Toys</title>
+      </Helmet>
             <h2 className='text-center'>Toys added by you</h2>
+           <p>Sort by price  :  <button onClick={lowToHigh} type='button' className='btn btn-primary mx-2'>Low to High</button><button onClick={highToLow} type='button' className='btn btn-primary mx-2'>High to Low</button></p>
             <div className='cate-grid mt-5'>
     {toys.map(x => <div key={x._id} className='card border-primary'>
         <img src={x.photoURL} className='card-img-top w-100' />

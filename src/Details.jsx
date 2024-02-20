@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 
 const Details = () => {
@@ -7,6 +8,9 @@ const Details = () => {
     return (
         
         <div className='container mt-4'>
+                  <Helmet>
+        <title>LT World | Toy Details</title>
+      </Helmet>
             <h2 className='text-center'>Toy Details</h2>
             <article>
             <img src={toy.photoURL} className='img-fluid my-4' />

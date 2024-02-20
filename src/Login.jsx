@@ -3,6 +3,7 @@ import { AuthContext } from './AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import auth from '../firebase.config';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
     const { user, setUser } = useContext(AuthContext); 
@@ -66,6 +67,9 @@ const Login = () => {
     }
     return (
         <div className='container my-5 text-center'>
+                  <Helmet>
+        <title>LT World | Login</title>
+      </Helmet>
             <h2>Login</h2>
             {user ?
                 <>

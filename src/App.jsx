@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from './AuthProvider';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 function App() {
   const { user, count } = useContext(AuthContext);
@@ -23,6 +24,9 @@ function App() {
   // console.log(sArr, mArr, eArr);
   return (
     <div className='container mt-4 text-center'>
+      <Helmet>
+        <title>LT World | Home</title>
+      </Helmet>
 <div id="demo" className="carousel slide" data-bs-ride="carousel">
 
   
