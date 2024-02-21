@@ -17,7 +17,7 @@ const Update = () => {
        
         const details = form.details.value;
         const updatedToy = { quantity, price, details };
-        fetch(`http://localhost:3000/toys/${toy._id}`, {
+        fetch(`https://toy-marketplace-server-q36p.onrender.com/toys/${toy._id}`, {
             method: 'PUT',
             headers: {
               'content-type': 'application/json'

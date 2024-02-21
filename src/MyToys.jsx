@@ -19,7 +19,7 @@ const MyToys = () => {
     function deleteToy(id) {
       if (confirm('Delete this toy?')) {
         
-        fetch(`http://localhost:3000/toys/${id}`, {
+        fetch(`https://toy-marketplace-server-q36p.onrender.com/toys/${id}`, {
           method: 'DELETE'
         })
         .then(res => res.json())

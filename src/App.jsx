@@ -39,13 +39,13 @@ function App() {
  
   <div className="carousel-inner">
     <div className="carousel-item active">
-      <img src="https://cdn.firstcry.com/education/2022/11/06094158/Toy-Names-For-Kids.jpg" alt="toy one" className="img-slider" />
+      <img src="https://makinglifeblissful.com/wp-content/uploads/2023/04/best-home-scince-kit-scaled.jpg" alt="toy one" className="img-slider" />
     </div>
     <div className="carousel-item">
-      <img src="https://media.istockphoto.com/id/1322274556/photo/collection-of-different-toys-on-wooden-table.jpg?s=612x612&w=0&k=20&c=DrcAYB7zglqgD3GuICJFLuxE9cBOvSJIlFAdOwrYZEE=" alt="toy two" className="img-slider" />
+      <img src="https://cdn0.woolworths.media/content/wowproductimages/large/1074496338.jpg" alt="toy two" className="img-slider" />
     </div>
     <div className="carousel-item">
-      <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/14568/production/_131640338_toyspic2.jpg" alt="toy three" className="img-slider" />
+      <img src="https://stemgeek.com/wp-content/uploads/2019/11/STE-Best-Engineering-Kits-for-Adults-featured.jpg" alt="toy three" className="img-slider" />
     </div>
   </div>
   

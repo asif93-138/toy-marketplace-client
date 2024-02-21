@@ -5,10 +5,17 @@ import { onAuthStateChanged } from 'firebase/auth';
 export const AuthContext = createContext(null); 
 
 const AuthProvider = ({children}) => {
+    // getData();
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [count, setCount] = useState([]);
     const [delLog, setDelLog] = useState(true);
+    async function getData() {
+        const x = await fetch('https://toy-server-1zyhyf4j1-asif93-138.vercel.app/test');
+        const y = await x.json();
+        console.log(x);
+        console.log(y);
+    }
     useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, currentUser => {
 			setUser(currentUser); setLoading(false);
@@ -18,7 +25,7 @@ const AuthProvider = ({children}) => {
 		}
 	}, [])
     useEffect(() => {
-        fetch('http://localhost:3000/toys')
+        fetch('https://toy-marketplace-server-q36p.onrender.com/toys')
         .then(res => res.json())
         .then(data => setCount(data))
 	}, [delLog])

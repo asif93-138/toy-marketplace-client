@@ -19,7 +19,7 @@ const AddingToy = () => {
         const details = form.details.value;
         const toy = {name, email, toyName, photoURL, cate, quantity, price, ratings, details};
         
-        fetch('http://localhost:3000/toys', {
+        fetch('https://toy-marketplace-server-q36p.onrender.com/toys', {
           method: 'POST',
           headers: {
             'content-type': 'application/json'
