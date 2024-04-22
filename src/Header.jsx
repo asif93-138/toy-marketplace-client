@@ -5,20 +5,6 @@ import { AuthContext } from './AuthProvider';
 const Header = () => {
     const { user, loading } = useContext(AuthContext);
     return (
-        // <div>
-        //     <Link to='/'>Logo</Link>
-        //     <Link to='/'>Name</Link>
-        //     <Link to='/'>Home</Link>
-        //     <Link to='/alltoys'>All Toys</Link>
-        //     {user && <>    
-        //     <Link to={`/mytoys/${user.displayName}`}>My toys</Link>        
-        //     <Link to='/addtoy'>Add a Toy</Link>
-        //     </>}
-        //     {(!user) &&  <Link to='/login'>Log in</Link>}
-        
-        //     <Link to='/blog'>Blogs</Link>
-        //     {user && <Link title={user.displayName} to='/login'><img src={user.photoURL} className='' /></Link>}
-        // </div>
         <nav className="navbar navbar-expand-sm bg-light navbar-light">
         <div className="container-fluid">
           <Link className="navbar-brand logo-txt text-primary" to="/">Learning Toys World</Link>
@@ -49,8 +35,8 @@ const Header = () => {
               </li>
             </ul>
               {(!loading) && <>
-                {(!user) &&  <NavLink className={({isActive}) => isActive ? "active-link-c" : ""} to='/login'><button className="btn btn-primary ms-2" type="button">Log in</button></NavLink>}
-              {user && <Link title={user.displayName} to='/login'><img src={user.photoURL} className='user-img rounded-circle ms-2' /></Link>}
+                {(!user) &&  <NavLink className={({isActive}) => isActive ? "active-link-c" : ""} to='/login'><button className="btn btn-primary ms-sm-2" type="button">Log in</button></NavLink>}
+              {user && <Link title={user.displayName} to='/login'><img src={user.photoURL} className='user-img rounded-circle ms-sm-2' /></Link>}
               </>}
           </div>
         </div>

@@ -43,7 +43,7 @@ const Update = () => {
       </Helmet>
           <h2 className='text-center mb-3'>Update your toy</h2>
           <h5 className='text-center mb-3'>Name : {toy.toyName}</h5><h5 className='text-center mb-5'>Sub Category : {toy.cate}</h5>
-      <form onSubmit={updateToy} className='w-50 mx-auto'>
+      <form onSubmit={updateToy} className='w-50 log-i mx-auto'>
         <label htmlFor="quantity" className=''><b>Quantity of your Toy :</b></label>
         <input type='number' name='quantity' className='form-control mb-3 border-primary' placeholder={toy.quantity} />
         <label htmlFor="price" className=''><b>Price of your Toy :</b></label>

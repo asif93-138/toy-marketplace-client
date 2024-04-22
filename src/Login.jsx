@@ -9,7 +9,9 @@ const Login = () => {
     const { user, setUser } = useContext(AuthContext); 
     const [error, setError] = useState('');
     const navigate = useNavigate();
+    const location = useLocation();
     const from = useLocation().state?.from.pathname || '/';
+    
     function siwE(event) {
         event.preventDefault();
         const form = event.target;
@@ -23,7 +25,7 @@ const Login = () => {
                 setUser(user);
                 form.reset();
                 setError('');
-                navigate(from, { replace: true });
+                navigate(from, { replace: true, state: {dataObj: location.state?.from.state.dataObj} });
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -42,7 +44,7 @@ const Login = () => {
                 const user = result.user;
                 setUser(user);
                 setError('');
-                navigate(from, { replace: true });
+                navigate(from, { replace: true, state: {dataObj: location.state?.from.state.dataObj} });
                 // IdP data available using getAdditionalUserInfo(result)
                 // ...
             }).catch((error) => {
@@ -77,7 +79,7 @@ const Login = () => {
                 </>
                 :
                 <>
-                    <form onSubmit={siwE} className='w-50 text-start mx-auto'>
+                    <form onSubmit={siwE} className='w-50 log-i text-start mx-auto'>
                         <label htmlFor="email">Email:</label>
                         <input type='email' className='form-control mb-3 border-primary' name='email' required />
                         <label htmlFor="password">Password:</label>

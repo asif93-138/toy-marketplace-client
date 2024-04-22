@@ -9,11 +9,12 @@ const MyToys = () => {
     
     useEffect(() => {
       const toy = [];
-      count.forEach(element => {
-        if (element.email == user.email) {toy.push(element)}
-      });
+      if (count != 'loading!') {
+        count.forEach(element => {
+          if (element.email == user.email) {toy.push(element)}
+        });
+      }
       setToys(toy);
-      
     }, [count])
     
     function deleteToy(id) {
@@ -49,10 +50,10 @@ const MyToys = () => {
                 <Helmet>
         <title>LT World | My Toys</title>
       </Helmet>
-            <h2 className='text-center'>Toys added by you</h2>
+            <h2 className='text-center mb-4'>Toys added by you</h2>
            <p>Sort by price  :  <button onClick={lowToHigh} type='button' className='btn btn-primary mx-2'>Low to High</button><button onClick={highToLow} type='button' className='btn btn-primary mx-2'>High to Low</button></p>
             <div className='cate-grid mt-5'>
-    {toys.map(x => <div key={x._id} className='card border-primary'>
+    {count == 'loading!' ? <h2>Loading!!</h2> : toys.map(x => <div key={x._id} className='card border-primary'>
         <img src={x.photoURL} className='card-img-top w-100' />
         <div className='card-body'>
         <h4 className='card-title mb-3'>Name : {x.toyName}</h4>

@@ -12,7 +12,7 @@ const AllToys = () => {
     const totalPages = Math.ceil(count.length / 20);
     const pageNo = [...Array(totalPages).keys()];
     useEffect(() => {
-        setPerPage(count.slice(0, 20));
+      if (count != 'loading!') {setPerPage(count.slice(0, 20));}
     }, [count])
     function toySearch() {
         if (!Boolean(document.getElementById('search').value.trim())) {setSearched([]); document.getElementById('search').value = '';}
@@ -46,7 +46,7 @@ const AllToys = () => {
             {searched[0] == 'initial' ? <></> : <>
                 {(!searched.length) ? <p className='text-center'><b>No results fond!</b></p> : <>{searched.map(x => <p key={x._id} className='text-center'><b>Toy Name : </b>{x.toyName} <br /><button onClick={() => viewingDetail(x._id, x)} type='button' className='btn btn-primary mt-3'>View Details</button></p>)}</>}
             </>}
-            <table className="table my-5 text-center">
+            {count == 'loading!' ? <h2>Loading!!</h2> :  <div className='table-responsive'><table className="table my-5 text-center">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -64,8 +64,8 @@ const AllToys = () => {
       <th scope='row'>{perPage.indexOf(x) + 1}.</th><td>{x?.name}</td><td>{x.toyName}</td><td>{x.cate}</td><td>{x.price}</td><td>{x.quantity}</td><td><button onClick={() => viewingDetail(x._id, x)} type='button' className='btn btn-primary'>View Details</button></td>
       </tr>))}
   </tbody>
-</table>
-                  
+</table></div>}
+
       <h4 className='text-center'>Page No : {pageNoUI}</h4>
       <div className='text-center'>{pageNo.map(x => <button onClick={() => pageHandler(x)} key={x} type='button' className='btn text-primary mx-2'><b>{x + 1}</b></button> )}</div>  
         </div>

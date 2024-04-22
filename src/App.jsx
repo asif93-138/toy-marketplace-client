@@ -15,13 +15,14 @@ function App() {
     navigate('/details', {state: { dataObj: data }});
   }
 
-
-  count.forEach(x => {
-    if (x.cate == 'Science Kits') {sArr.push(x)}
-    else if (x.cate == 'Math Learning Toys') {mArr.push(x)}
-    else {eArr.push(x)}
-  })
-  // console.log(sArr, mArr, eArr);
+  if (count != 'loading!') {
+    count.forEach(x => {
+      if (x.cate == 'Science Kits') {sArr.push(x)}
+      else if (x.cate == 'Math Learning Toys') {mArr.push(x)}
+      else {eArr.push(x)}
+    })
+  }
+  
   return (
     <div className='container mt-4 text-center'>
       <Helmet>
@@ -63,17 +64,17 @@ function App() {
    <article className='ot-sec border border border-primary rounded-3 py-4'>
       <i className="fs-3 fa-solid fa-microscope"></i>
       <h4 className='my-3'>Science Kits</h4>
-      <h3>{sArr.length}</h3>
+      <h3>{count == 'loading!' ? 'Loading..' : sArr.length}</h3>
    </article>
    <article className='ot-sec border border border-primary rounded-3 py-4'>
       <i className="fs-3 fa-solid fa-calculator"></i>
       <h4 className='my-3'>Math Toys</h4>
-      <h3>{mArr.length}</h3>
+      <h3>{count == 'loading!' ? 'Loading..' : mArr.length}</h3>
    </article>
   <article className='ot-sec border border border-primary rounded-3 py-4'>
     <i className="fs-3 fa-brands fa-galactic-republic"></i>
     <h4 className='my-3'>Engineering Kits</h4>
-    <h3>{eArr.length}</h3>
+    <h3>{count == 'loading!' ? 'Loading..' : eArr.length}</h3>
   </article>
   </div>
 </section>
@@ -95,7 +96,7 @@ function App() {
     <div id="home" className="tab-pane active">
       
       <div className='cate-grid'>
-      {sArr.map(x => <div key={x._id} className='card border-primary'>
+        {count == 'loading!' ? <h2>Loading!!</h2> : sArr.map(x => <div key={x._id} className='card border-primary'>
         <img src={x.photoURL} className='card-img-top w-100' />
         <div className='card-body'>
         <h4 className='card-title mb-3'>Name : {x.toyName}</h4>
@@ -109,7 +110,7 @@ function App() {
     <div id="menu1" className="tab-pane fade">
     
     <div className='cate-grid'>
-    {mArr.map(x => <div key={x._id} className='card border-primary'>
+    {count == 'loading!' ? <h2>Loading!!</h2> : mArr.map(x => <div key={x._id} className='card border-primary'>
         <img src={x.photoURL} className='card-img-top w-100' />
         <div className='card-body'>
         <h4 className='card-title mb-3'>Name : {x.toyName}</h4>
@@ -123,7 +124,7 @@ function App() {
     <div id="menu2" className="tab-pane fade">
     
     <div className='cate-grid'>
-    {eArr.map(x => <div key={x._id} className='card border-primary'>
+    {count == 'loading!' ? <h2>Loading!!</h2> : eArr.map(x => <div key={x._id} className='card border-primary'>
         <img src={x.photoURL} className='card-img-top w-100' />
         <div className='card-body'>
         <h4 className='card-title mb-3'>Name : {x.toyName}</h4>

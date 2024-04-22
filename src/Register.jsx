@@ -47,7 +47,7 @@ const Register = () => {
             {
                 user ? <p className='mt-5'>Please, logout first!</p>
                     :
-                    <form onSubmit={suwE} className='w-50 text-start mx-auto'>
+                    <form onSubmit={suwE} className='w-50 log-i text-start mx-auto'>
                         <label htmlFor="name">Name:</label>
                         <input type='text' className='form-control mb-3 border-primary' name='name' required />
                         <label htmlFor="email">Email:</label>

@@ -43,7 +43,7 @@ const AddingToy = () => {
         <title>LT World | Toy Adding</title>
       </Helmet>
           <h2 className='text-center mb-5'>Enter your toy details below</h2>
-        <form onSubmit={dbInput} className='w-50 mx-auto'>
+        <form onSubmit={dbInput} className='w-50 log-i mx-auto'>
         <label htmlFor="name" className=''><b>Seller Name (Default) :</b></label>
         <input type='text' name='name' className='form-control mb-3 border-primary' defaultValue={user.displayName} readOnly />
         <label htmlFor="email" className=''><b>Seller Email (Default) :</b></label>
