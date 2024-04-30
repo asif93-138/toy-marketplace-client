@@ -4,6 +4,6 @@
 - It has an authentication system based on google firebase.
 - A search option is there by toy name.
 - 'My Toys' route can show user specific information.
-- Homepage is mobile responsive.
+- Full site is mobile responsive.
 
 [Live link](https://toy-marketplace-bc8c1.web.app)
